@@ -53,23 +53,12 @@ router.put("/api/workouts/:id", ({ body, params }, res) => {
     .catch((err) => {
       res.status(400).json(err);
     });
-  ///////////////////////////////////////////////////////////////////////////
-  // Workout.findByIdAndUpdate(
-  //   params.id,
-  //   { $push: { exercises: body } },
-  //   { new: true, runValidators: true }
-  // )
-  //   .then((dbWorkout) => {
-  //     res.json(dbWorkout);
-  //   })
-  //   .catch((err) => {
-  //     res.status(400).json(err);
-  //   });
-  ////////////////////////////////////////////////////////////////////////////////////////////
 });
 
 router.get("/api/workouts/range", (req, res) => {
   Workout.find({ "exercises.type": "resistance" })
+    .limit(7)
+    .sort({ day: -1 })
     .then((dbWorkout) => {
       res.json(dbWorkout);
     })

@@ -1,3 +1,11 @@
+const continueButton = document.querySelector("#continue-btn");
+
+continueButton.addEventListener("click", function (event) {
+  console.log("continue clicked");
+  console.log(location.search.split("=")[1]);
+  window.location.replace("exercise.html?id=" + location.search.split("=")[1]);
+});
+
 init();
 
 async function init() {
