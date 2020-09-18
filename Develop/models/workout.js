@@ -9,39 +9,33 @@ const workOutSchema = new Schema({
 
   exercises: [
     {
-      type: String,
-      name: String,
-      duration: Number,
-      weight: Number,
-      reps: Number,
-      sets: Number,
+      type: {
+        type: String,
+      },
+      name: {
+        type: String,
+      },
+      duration: {
+        type: Number,
+      },
+      weight: {
+        type: Number,
+      },
+      reps: {
+        type: Number,
+      },
+      sets: {
+        type: Number,
+      },
+      distance: {
+        type: Number,
+      },
     },
   ],
+
+  totalDuration: { type: Number },
 });
 
 const Workout = mongoose.model("workout", workOutSchema);
 
 module.exports = Workout;
-
-// type: {
-//   type: String,
-//   trim: false,
-//   require: "String is Required",
-// },
-// name: {
-//   type: String,
-//   trim: false,
-//   require: "String is Required",
-// },
-// duration: {
-//   type: Number,
-// },
-// weight: {
-//   type: Number,
-// },
-// reps: {
-//   type: Number,
-// },
-// sets: {
-//   type: Number,
-// },
